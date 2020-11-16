@@ -53,10 +53,32 @@
       - 大文字英文字、小文字英文字、数値、特殊文字最小一文字入力（未実装）  
   - httpsで受け付けます (未実装)  
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
-# 詳細設計
-
+# 基本設計
+## db  
+* users  #ユーザー情報を管理する表 
+```
+create_table "users", force: :cascade do |t|
+    t.string "username" 
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
+    t.string "password_digest"
+  end
+```
+* worktimes #勤務情報を管理する表
+```
+  create_table "worktimes", force: :cascade do |t|
+    t.datetime "ontime"
+    t.datetime "offtime"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+  end
+```
 ## model層 
-
+* users 
+* worktimes
 ## controler層 
 
 ## view層
