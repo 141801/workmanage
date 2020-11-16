@@ -55,6 +55,7 @@
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
 # 基本設計
 ## db  
+情報を格納する表を定義します
 * users  #ユーザー情報を管理する表 
 ```
 create_table "users", force: :cascade do |t|
@@ -77,8 +78,28 @@ create_table "users", force: :cascade do |t|
   end
 ```
 ## model層 
-* users #
+usersとworktimesの"one-to-many"関係反映と各パラメーターの検証方法を定義します
+* users 
+```
+class User < ApplicationRecord
+  has_many :worktimes, dependent: :destroy
+  validates :username, presence: true, 
+            uniqueness: { case_sensitive: false }, 
+            length: { minimum: 3, maximum: 25 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 105 },
+            uniqueness: { case_sensitive: false },
+            format: { with: VALID_EMAIL_REGEX }
+  has_secure_password
+end
+```
 * worktimes
+```
+class Worktime < ApplicationRecord
+   belongs_to :user
+   validates  :user_id,presence: true
+end
+```
 ## controler層 
 
 ## view層
