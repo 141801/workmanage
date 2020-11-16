@@ -1,8 +1,8 @@
-<h4 align="center"><%= @user.username %>'s worktimes</h4>
+<h4 align="center">本月<%= @user.username %>の勤務記録</h4>
 <div class="center">
   <table class="table table-striped">
     <thead>
-      <tr><td>日付</td><td>総時間</td><td>操作</td></tr>
+      <tr><td>日付</td><td>本月総作業時間</td><td>操作</td></tr>
     </thead>
     <tbody>
     <%  @bydate.each do |datetime|  %>

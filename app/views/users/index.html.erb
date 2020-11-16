@@ -1,11 +1,11 @@
-<h1 align="center"> users </h1>
+<h1 align="center">作業者一覧</h1>
 <% if logged_in? && current_user.admin? %>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">name</th>
-        <th scope="col">worktimes count</th>
-        <th scope="col">delete user</th>
+        <th scope="col">ユーザー名</th>
+        <th scope="col">当月記録数</th>
+        <th scope="col">ユーザー削除</th>
       </tr>
     </thead>
     <tbody>
@@ -14,7 +14,7 @@
             <tr>
               <td><%= link_to user.username, user_path(user) %></td>
               <td><%= pluralize(user.worktimes.count, "") if user.worktimes %></td>
-              <td><%= link_to "Delete this user", user_path(user), method: :delete,
+              <td><%= link_to "削除", user_path(user), method: :delete,
                data: { confirm: "Are you sure you want to delete the user and all their articles?" } %></td>
             </tr>
           <% end %> 

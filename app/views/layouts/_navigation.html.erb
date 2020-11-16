@@ -18,18 +18,26 @@
        <li class="nav-item">
          <%= link_to 'log out', logout_path,{class: "nav-link", method: :delete} %>
        </li>
-      <% elsif logged_in? and current_user.admin? %>
-        <%= link_to "ユーザ一覧",users_path %>
-        <%= link_to "アカウント編集",edit_user_path(current_user) %>
-        <%= link_to "勤務履歴一覧",worktimes_path %>
-        <%= link_to "Log out",logout_path,{class: "nav-link", method: :delete} %>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Log in', login_path, {class: "nav-link"} %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign up', signup_path, {class: "nav-link"} %>
-        </li>
+     <% elsif logged_in? and current_user.admin? %>
+       <li class="nav-item">
+         <%= link_to "ユーザ一覧",users_path, {class: "nav-link"} %>
+       </li>
+       <li class="nav-item">
+         <%= link_to "アカウント編集",edit_user_path(current_user), {class: "nav-link"} %>
+       </li>
+       <li class="nav-item">
+         <%= link_to "勤務履歴一覧",worktimes_path, {class: "nav-link"} %>
+       </li>
+       <li class="nav-item">
+         <%= link_to "Log out",logout_path,{class: "nav-link", method: :delete} %>
+       </li>
+     <% else %>
+       <li class="nav-item">
+         <%= link_to 'Log in', login_path, {class: "nav-link"} %>
+       </li>
+       <li class="nav-item">
+         <%= link_to 'Sign up', signup_path, {class: "nav-link"} %>
+       </li>
       <% end %>
       </ul>
   </div>

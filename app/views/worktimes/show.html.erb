@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Ontime:</strong>
-  <%= @worktime.ontime %>
-</p>
-
-<p>
-  <strong>Offtime:</strong>
-  <%= @worktime.offtime %>
-</p>
-
+<div class="center">
+  <table class="table table-striped">
+    <thead>
+      <tr><td>開始時間</td><td>終了時間</td></tr>
+    </thead>
+    <tbody>
+      <tr><td><%= @worktime.ontime %></td><td><%= @worktime.offtime %></td></td>
+    </tbody>
+  </table>
 <%= link_to 'Edit', edit_worktime_path(@worktime) %> |
 <%= link_to 'Back', worktimes_path %>
+</div>
