@@ -73,11 +73,11 @@ create_table "users", force: :cascade do |t|
     t.datetime "offtime"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "user_id"  #foreign key
   end
 ```
 ## model層 
-* users 
+* users #
 * worktimes
 ## controler層 
 
