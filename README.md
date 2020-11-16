@@ -1,3 +1,15 @@
+# demo用情報
+## アクセス情報
+* ip:34:84:150.9
+* アカウント
+
+| username | email | password | 身分 |
+----|---- |----|----
+| admin | admin@work.com | adminadmin | 管理者 |
+| user1 | user1@work.com | 111111 | ユーザ1 |
+| user2 | user2@work.com | 111111 | ユーザ2 |
+| user3 | user3@work.com | 111111 | ユーザ3 |
+
 # 要件定義
 - 管理者
   - ログイン
@@ -53,10 +65,13 @@
       - 大文字英文字、小文字英文字、数値、特殊文字最小一文字入力（未実装）  
   - httpsで受け付けます (未実装)  
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
-# 基本設計（略）
-- システム構成図
-- DBのER図
-- ページレイアウト
+# 基本設計
+- 動作環境
+  linux:debian10
+  
+- システム構成図（略）
+- DBのER図（略）
+- ページレイアウト（略）
 # 詳細設計
 ## db  
 情報を格納する表を定義します
@@ -105,8 +120,13 @@ class Worktime < ApplicationRecord
 end
 ```
 ## controler層 
-*user
+* users_controller.rb
+* worktimes_controller.rb
+* sessions_controller.rb
+* pages_controller.rb
 ## view層
-
-## router
+* users
+* worktimes
+* sessions
+* pages
 
