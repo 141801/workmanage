@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update, :show, :detail]
+  before_action :set_user, only: [:edit, :update, :show, :destroy, :detail]
   before_action :require_same_user, only: [:show, :edit, :update, :detail]
   before_action :require_admin, only: [:destroy, :index]
 
@@ -36,9 +36,8 @@ class UsersController < ApplicationController
   end
 
   def show
-#    @user=User.find(params[:id])
     @worktimes = @user.worktimes
-    @bydate = @worktimes.select("date(ontime) , SUM(offtime-ontime)  ").where(ontime: Time.current.beginning_of_month..Time.current.end_of_month).group("date(ontime)")
+    @bydate = @worktimes.select("date(ontime) , SUM(offtime-ontime)  ").where(ontime: Time.current.beginning_of_month..Time.current.end_of_month).group("date(ontime)").order(date: "DESC")
   end
 
   def detail
@@ -48,7 +47,6 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     flash[:danger] = "User and all worktimes created by user have been deleted"
     redirect_to users_path

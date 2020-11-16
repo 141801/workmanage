@@ -6,7 +6,7 @@ class WorktimesController < ApplicationController
   # GET /worktimes
   # GET /worktimes.json
   def index
-    @worktimes = Worktime.all
+    @worktimes = Worktime.all.order(ontime: "DESC")
   end
 
   # GET /worktimes/1
@@ -64,7 +64,7 @@ class WorktimesController < ApplicationController
   end
 
   def online
-    session[:online] = Time.current 
+    session[:online] = Time.parse(Time.current.to_s[0,19]) 
     #redirect_to new_path
     redirect_to request.referrer, notice: "online input ok"
   end
@@ -73,7 +73,7 @@ class WorktimesController < ApplicationController
     if  session[:online] 
      @worktime = Worktime.new
      @worktime.ontime = session[:online] 
-     @worktime.offtime = Time.current   
+     @worktime.offtime = Time.parse(Time.current.to_s[0,19])   
      @worktime.user = current_user
      @worktime.save
      session[:online] = nil

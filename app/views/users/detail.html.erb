@@ -1,8 +1,9 @@
-<h4 align="center"><%= @user.username %>'s worktimes</h4>
+<h4 align="center"><%= @user.username %> の勤務記録 </h4>
+<h5 align="center">日付： <%= @mydate.to_s[0,10]%></h5>
 <div class="center">
   <table class="table table-striped">
     <thead>
-      <tr><td>作業開始</td><td>作業終了<%= @mydate  %></td></tr>
+      <tr><td>作業開始</td><td>作業終了</td></tr>
     </thead>
     <tbody>
     <%  @details.each do |detail|  %>
