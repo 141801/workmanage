@@ -1,6 +1,6 @@
 # demo用情報
 ## アクセス情報
-* ip:34:84:150.9
+* ip:34:84:150.9 (GCE)
 * アカウント
 
 | username | email | password | 身分 |
@@ -68,7 +68,11 @@
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
 # 基本設計
 - 動作環境
-  linux:debian10
+  - os:Debian 4.19.152-1 (2020-10-18)
+  - db:PostgreSQL 11.9
+  - rails:Rails 6.0.3.4  
+  - ruby:ruby-2.7.0
+  
   
 - システム構成図（略）
 - DBのER図（略）
