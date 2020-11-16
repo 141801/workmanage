@@ -68,10 +68,10 @@
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
 # 基本設計
 - 動作環境
-  - os:Debian 4.19.152-1 (2020-10-18)
-  - db:PostgreSQL 11.9
-  - rails:Rails 6.0.3.4  
-  - ruby:ruby-2.7.0
+  - OS:Debian 4.19.152-1 (2020-10-18)
+  - DB:PostgreSQL 11.9
+  - Rails:Rails 6.0.3.4  
+  - Ruby:ruby-2.7.0
   
   
 - システム構成図（略）
