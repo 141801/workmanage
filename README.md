@@ -53,6 +53,13 @@
       - 大文字英文字、小文字英文字、数値、特殊文字最小一文字入力（未実装）  
   - httpsで受け付けます (未実装)  
   - アカウント情報変更時、ユーザ認証機能 (未実装) 
-#db table
-* users(uid,name,email,isadmin,password)
-* management(ontime,offtime,uid)
+# 詳細設計
+
+## model層 
+
+## controler層 
+
+## view層
+
+## router
+
