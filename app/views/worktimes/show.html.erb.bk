@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ontime:</strong>
+  <%= @worktime.ontime %>
+</p>
+
+<p>
+  <strong>Offtime:</strong>
+  <%= @worktime.offtime %>
+</p>
+
+<%= link_to 'Edit', edit_worktime_path(@worktime) %> |
+<%= link_to 'Back', worktimes_path %>

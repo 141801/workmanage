@@ -1,0 +1,15 @@
+class User < ApplicationRecord
+<<<<<<< HEAD
+  has_many :worktimes, dependent: :destroy
+=======
+  has_many :worktimes , dependent: :destroy
+>>>>>>> 8f37674ef6cff476f118bb7087c50fb6eeaa3ad6
+  validates :username, presence: true, 
+            uniqueness: { case_sensitive: false }, 
+            length: { minimum: 3, maximum: 25 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 105 },
+            uniqueness: { case_sensitive: false },
+            format: { with: VALID_EMAIL_REGEX }
+  has_secure_password
+end

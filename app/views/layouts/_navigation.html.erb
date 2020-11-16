@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">打刻管理システム</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <% if logged_in? and !current_user.admin?%>
+        <%= link_to "勤務履歴一覧", worktimes_path  %>
+        <%= link_to "アカウント編集", edit_user_path(current_user) %>
+        <%= link_to "新規勤務登録",new_worktime_path %>
+        <%= link_to 'log out', logout_path, method: :delete %>
+      <% elsif logged_in? and current_user.admin? %>
+        <%= link_to "ユーザ一覧",users_path %>
+        <%= link_to "アカウント編集",edit_user_path(current_user) %>
+        <%= link_to "勤務履歴一覧",worktimes_path %>
+        <%= link_to "log out",logout_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Log in', login_path %>
+        <%= link_to 'Sign up', signup_path %>
+      <% end %>
+    </div>
+  </div>
+</nav>

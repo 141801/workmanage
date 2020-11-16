@@ -1,0 +1,27 @@
+<%= form_with(model: worktime, local: true) do |form| %>
+  <% if worktime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(worktime.errors.count, "error") %> prohibited this worktime from being saved:</h2>
+
+      <ul>
+        <% worktime.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ontime %>
+    <%= form.datetime_select :ontime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :offtime %>
+    <%= form.datetime_select :offtime %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

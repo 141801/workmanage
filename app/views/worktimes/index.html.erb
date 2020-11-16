@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>打刻一覧</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">打刻開始</th>
+      <th scope="col">打刻終了</th>
+      <td scope="col">ユーザ名</th>
+      <% if current_user.admin? %>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Destroy</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @worktimes.each do |worktime| %>
+      <% if worktime.user == current_user || current_user.admin?  %> 
+        <tr> 
+          <td><%= worktime.ontime %></td>
+          <td><%= worktime.offtime %></td>
+          <td><%= worktime.user.username %></td>
+           <% if current_user.admin? %>
+              <td><%= link_to 'Show', worktime %></td>
+              <td><%= link_to 'Edit', edit_worktime_path(worktime) %></td>
+              <td><%= link_to 'Destroy', worktime, method: :delete, data: { confirm: 'Are you sure?' } %></td>                   
+           <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

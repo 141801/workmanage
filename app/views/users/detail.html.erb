@@ -1,0 +1,16 @@
+<h4 align="center"><%= @user.username %>'s worktimes</h4>
+<div class="center">
+  <table class="table table-striped">
+    <thead>
+      <tr><td>作業開始</td><td>作業終了<%= @mydate  %></td></tr>
+    </thead>
+    <tbody>
+    <%  @details.each do |detail|  %>
+      <tr>
+        <td><%= detail.ontime  %></td>
+        <td><%= detail.offtime %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

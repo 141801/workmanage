@@ -1,0 +1,18 @@
+<h4 align="center"><%= @user.username %>'s worktimes</h4>
+<div class="center">
+  <table class="table table-striped">
+    <thead>
+      <tr><td>日付</td><td>総時間</td><td>操作</td></tr>
+    </thead>
+    <tbody>
+    <%  @bydate.each do |datetime|  %>
+      <tr>
+        <td><%= datetime.date  %></td>
+
+        <td><%= datetime.sum %></td>
+        <td><%= link_to "詳細", detail_users_path(@user,datetime.date)  %>    </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

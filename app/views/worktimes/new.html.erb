@@ -1,0 +1,5 @@
+<h1>New Worktime</h1>
+
+<%= button_to "勤務開始", {action: 'online'}, {method: :post, class: "btn btn-primary btn-lg btn-block", data: {confirm: "Are you sure?"}} %>
+<%= button_to "勤務終了", {action: 'offline'}, {method: :post, class: "btn btn-secondary btn-lg btn-block",data:{confirm: "Are you sure?"}} %>
+<%= link_to 'Back', worktimes_path %>

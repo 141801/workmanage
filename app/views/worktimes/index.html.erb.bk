@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Worktimes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ontime</th>
+      <th>Offtime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @worktimes.each do |worktime| %>
+      <tr>
+        <td><%= worktime.ontime %></td>
+        <td><%= worktime.offtime %></td>
+        <td><%= link_to 'Show', worktime %></td>
+        <td><%= link_to 'Edit', edit_worktime_path(worktime) %></td>
+        <td><%= link_to 'Destroy', worktime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Worktime', new_worktime_path %>
