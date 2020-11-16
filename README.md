@@ -124,12 +124,12 @@ class Worktime < ApplicationRecord
    validates  :user_id,presence: true
 end
 ```
-## controler層 
+## controler層 （略）
 * users_controller.rb
 * worktimes_controller.rb
 * sessions_controller.rb
 * pages_controller.rb
-## view層
+## view層（略）
 * users
 * worktimes
 * sessions
