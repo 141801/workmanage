@@ -1,0 +1,58 @@
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script> 
+
+<script type="text/javascript">
+  $(window).ready( function() {
+  $('#user_postal_code').jpostal({
+    postcode : [
+      '#user_postal_code'
+    ],
+    address : {
+        "#user_prefecture_code": "%3", // # 都道府県が入力される
+        "#user_city"           : "%4%5", // # 市区町村と町域が入力される
+        "#user_street"         : "%6%7" // # 大口事務所の番地と名称が入力される
+    }
+  });
+  });
+
+
+var timeoutId;
+$('form input, form textarea').on('input propertychange change', function() {
+    console.log('Textarea Change');
+    
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function() {
+        // Runs 1 second (1000 ms) after the last change    
+        saveToDB();
+    }, 100000);
+});
+
+function saveToDB()
+{
+    console.log('Saving to the db');
+    
+    // Now show them we saved and when we did
+    var d = new Date();
+    $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+}
+
+</script>
+<h5 align="center">新規登録</h5>
+
+<%= render 'form' %>
+
+<div>
+    Demo with example ajax call <a href="http://jsfiddle.net/MadLittleMods/NxQ4A/">here</a>
+</div>
+<br />
+
+<form class="contact-form" method="post">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    <input type="radio" name="sex" value="male">Male<br>
+    <input type="radio" name="sex" value="female">Female<br>
+    <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+    <textarea id="the-textarea"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+<div class="form-status-holder"></div>
