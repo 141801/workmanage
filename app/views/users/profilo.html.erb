@@ -19,22 +19,16 @@
 
    $(function(){
 	<!--- button1 の click 時の処理 --->
-      $('#text1').on({
-          'input properychange change': function(){
-          
-             clearTimeout(timeoutId);
-             timeoutId = setTimeout(function() {
-               // Runs 1 second (1000 ms) after the last change    
-              saveToDB();
-             }, 1000);  
-          
-          }        
-       })
+        $('#text1').on({
+          'input properychange change': function(){alert("sa")}
+                  
+                  
+         })
     });
 
 
 var timeoutId;
-$('form input').on('input propertychange change', function() {
+$('#text1').on('input propertychange change', function() {
     console.log('Textarea Change');
     
     clearTimeout(timeoutId);
@@ -63,8 +57,8 @@ function saveToDB()
 
 
 <div class="form-status-holder"></div>
-<h5 align="center">新規登録</h5>
-<%= render 'form' %>
+<h5 align="center">プロファイル</h5>
+<%= render 'profiloform' %>
 </body>
 
 </html>
