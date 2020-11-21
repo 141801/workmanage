@@ -1,23 +1,30 @@
 <html>
 
 <head>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(function(){
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script> 
+<script type="text/javascript">
+  $(window).ready( function() {
+  $('#user_postal_code').jpostal({
+    postcode : [
+      '#user_postal_code'
+    ],
+    address : {
+        "#user_prefecture_code": "%3", // # 都道府県が入力される
+        "#user_city"           : "%4%5", // # 市区町村と町域が入力される
+        "#user_street"         : "%6%7" // # 大口事務所の番地と名称が入力される
+    }
+  });
+    });
 
-			<!--- button1 の click 時の処理 --->
-
-			$('#button1').click(function () {
-	    		$('#area1').append($('#text1').val()).append('\n');
-                        });
-                  $('#text1').on({
-
-                    'input properychange change': function(){alert("sa")}
+   $(function(){
+	<!--- button1 の click 時の処理 --->
+        $('#text1').on({
+          'input properychange change': function(){alert("sa")}
                   
                   
-                  })
-
-                });
+         })
+    });
 
 
 var timeoutId;
@@ -50,7 +57,8 @@ function saveToDB()
 
 
 <div class="form-status-holder"></div>
-
+<h5 align="center">新規登録</h5>
+<%= render 'form' %>
 </body>
 
 </html>
