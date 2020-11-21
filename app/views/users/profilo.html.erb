@@ -17,48 +17,37 @@
   });
     });
 
-   $(function(){
-	<!--- button1 の click 時の処理 --->
-        $('#text1').on({
-          'input properychange change': function(){alert("sa")}
-                  
-                  
-         })
-    });
-
-
 var timeoutId;
-$('#text1').on('input propertychange change', function() {
-    console.log('Textarea Change');
-    
+  $(function(){
+      $('form input').on({
+          'input properychange change': function(){
+          
     clearTimeout(timeoutId);
     timeoutId = setTimeout(function() {
         // Runs 1 second (1000 ms) after the last change    
         saveToDB();
     }, 1000);
-});
+
+          }        
+       })
+  });
+
 
 function saveToDB()
 {
     console.log('Saving to the db');
-    
-    // Now show them we saved and when we did
+  // Now show them we saved and when we did
+  $("#edit_user_15").submit();
     var d = new Date();
     $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
 }
-	</script>
+</script>
 </head>
 
 <body>
-	<INPUT    id="text1"   type="text" value="jquery try" cols=40>
-	<button   id="button1" >OK</button>
-	</br></br>
-        <textarea id="area1"   cols=40 rows=10></textarea>
-
-
-<div class="form-status-holder"></div>
 <h5 align="center">プロファイル</h5>
 <%= render 'profiloform' %>
+<div class="form-status-holder"></div>
 </body>
 
 </html>

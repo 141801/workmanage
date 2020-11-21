@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @user %>
 
-    <%= form_for(@user, :html => {class: "form-horizontal", role: "form", mutipart: true}) do |f| %>
+    <%= form_for(@user, remote: true, authenticity_token: true,  :html => {class: "form-horizontal", role: "form", mutipart: true}) do |f| %>
 
   <div class="field">
     <%= f.label :postal_code %><br>

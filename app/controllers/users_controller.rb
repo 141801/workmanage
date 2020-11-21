@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update, :show, :destroy, :detail]
-  before_action :require_same_user, only: [:show, :edit, :update, :detail]
+  before_action :set_user, only: [:edit, :update, :show, :destroy, :detail, :profilo]
+  before_action :require_same_user, only: [:show, :edit, :update, :detail, :profilo]
   before_action :require_admin, only: [:destroy, :index]
 
   def index
@@ -26,10 +26,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def profilo
+
+  end
+
   def update
     if @user.update(user_params)
       flash[:success] = "Your account was updated successfully"
-      redirect_to worktimes_path
+     # redirect_to worktimes_path
     else
       render 'edit'
     end

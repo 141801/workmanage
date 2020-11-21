@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new] do
     collection do
       get ':id/:date/detail' => 'users#detail', as: :detail
+      get ':id/profilo' => 'users#profilo', as: :profilo
     end
   end
   get 'login', to: 'sessions#new'

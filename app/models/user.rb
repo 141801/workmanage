@@ -7,10 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 105 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
-  validates :postal_code, presence: true
-  validates :prefecture_code, presence: true
-  validates :city, presence: true
-  validates :street, presence: true
   mount_uploaders :images, ImageUploader
   has_secure_password
   include JpPrefecture

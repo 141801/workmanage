@@ -47,18 +47,18 @@
 　　<%= f.label :image %>
 　　<%= f.file_field :images , multiple: true %> 
 
-
-      <div class="form-group">
+<div class="form-group">
         <div class="control-label col-sm-2">
           <%= f.label :password %>
         </div>
         <div class="col-sm-8">
           <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
         </div>
-      </div>  
+      </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-primary btn-lg') %>
         </div>
       </div>
+
     <% end %>
